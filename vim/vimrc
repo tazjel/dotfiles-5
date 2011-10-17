@@ -75,10 +75,11 @@ if has("gui_gtk2")
   set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
 endif
 
-" Define command-t maps
+" Configure command-t
 noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>m <Esc>:CommandTBuffer<CR>
+set wildignore+=*.o,*.obj,.git,CMakeFiles,*.cmake,*.png,*.gif,*.pdf,*.jpg,obj,*.ogg,*.mp3
 
 " Turn on omnicompletion
 set ofu=syntaxcomplete#Complete
