@@ -4,3 +4,15 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/delmitmate"]
+	path = vim/bundle/delmitmate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "vim/bundle/pyflakes"]
+	path = vim/bundle/pyflakes
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
