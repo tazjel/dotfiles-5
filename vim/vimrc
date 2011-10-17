@@ -26,8 +26,14 @@ set cursorline
 " Tell vim how many columns a tab counts for
 set tabstop=4
 
-" tell vim to start searching when you type the first character of the search string
+" Indicate a fast terminal connection
+set ttyfast
+
+" Tell vim to start searching when you type the first character of the search string
 set incsearch
+
+" When a bracket is inserted, briefly jump to the matching one
+set showmatch
 
 " Tell vim how many columns text is indented with the reindent operations (<< and >>) and automatic C-style indentation
 set shiftwidth=4

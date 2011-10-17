@@ -25,3 +25,6 @@
 [submodule "vim/bundle/autocomplpop"]
 	path = vim/bundle/autocomplpop
 	url = git://github.com/vim-scripts/AutoComplPop.git
+[submodule "vim/bundle/csapprox"]
+	path = vim/bundle/csapprox
+	url = git://github.com/godlygeek/csapprox.git
