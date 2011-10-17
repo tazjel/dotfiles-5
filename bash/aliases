@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+alias vi='vim'
+
+# Enable PHP to be used with the mongoose server
+alias mongoose="mongoose -C cgi,php -I /usr/local/bin/php-cgi"
+
+# Convert PostScript file to PDF booklet
+function ps2booklet(){
+    if [ -z "$1" ]; then
+        echo "Usage: ps2booklet (input.[e]ps)";
+        return 1;
+    fi
+    psbook $1 /tmp/book.ps &&
+    psnup -2 /tmp/book.ps /tmp/booklet.ps &&
+    ps2pdf /tmp/booklet.ps ${1%%.*}.pdf &&
+    rm /tmp/book.ps &&
+    rm /tmp/booklet.ps;
+}
+
+# Use ranger as a directory switcher
+function ranger-cd {
+  ranger --choosedir=/tmp/chosen
+  if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
+    cd "$(cat /tmp/chosen)"
+  fi
+  rm -f /tmp/chosen
+}
+bind '"\C-o":"ranger-cd\C-m"'
+
+# Batch conversion of PCM files
+alias pcm2ogg='find . -maxdepth 1 -name "*.pcm" | xargs oggenc -r -B 16 -C 1 -R 16000'
+alias pcm2mp3='find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i lame -r --bitwidth 16 -s 16 -m m --little-endian --signed {}.pcm {}.mp3'
+
+alias cgdbpc='gdb -d gdb -x ~/dotfiles/utils/pal_thread.gdb'
+
+function cscope_find(){
+    if [ -z "$1" ]; then
+        echo "Usage: cscope_find (path_to_source_files)";
+        return 1;
+    fi
+    cd /
+    # Find source files
+    echo "Finding source files..."
+    find $1 \
+    -path $1/Soprano -prune \
+    -o -path $1/tmp -prune \
+    -o -name '*.py' \
+    -o -name '*.java' \
+    -o -iname '*.[CH]' \
+    -o -name '*.cpp' \
+    -o -name '*.cc' \
+    -o -name '*.hpp'  \
+    > $1/cscope.files
+    echo "Done!"
+    cd - > /dev/null
+    cd $1
+    # Build the cscope database 
+    # -b: just build
+    # -q: create inverted index
+    echo "Building database..."
+    cscope -b -q
+    echo "Done!"
+    cd - > /dev/null
+}

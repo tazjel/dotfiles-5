@@ -102,49 +102,27 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# dir location
-export CODE_DIR="/home/olivierc/Code"
-export DATA_DIR="/home/olivierc/Data"
-
-alias vi='vim'
-alias cgdbpc="cgdb -d gdb -x ${CODE_DIR}/scripts/pal_thread.gdb"
-alias ckcm="${CODE_DIR}/ckcm/bin-linux/wxCKCM"
-alias cscope_gen="sh ${CODE_DIR}/scripts/cscope_gen.sh"
-alias cscope_find="source ${CODE_DIR}/scripts/cscope_find.sh"
-alias mongoose="${CODE_DIR}/mongoose/mongoose -C cgi,php -I /usr/local/bin/php-cgi"
-alias ps2booklet="${CODE_DIR}/scripts/ps2booklet.sh"
-alias pdf2booklet="${CODE_DIR}/scripts/pdf2booklet.sh"
-alias gentala='${CODE_DIR}/scripts/gentala.sh'
-alias pcm2ogg='find . -maxdepth 1 -name "*.pcm" | xargs oggenc -r -B 16 -C 1 -R 16000'
-alias pcm2mp3='find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i lame -r --bitwidth 16 -s 16 -m m --little-endian --signed {}.pcm {}.mp3'
-
 # location of the cscope database
-export CSCOPE_DB="${CODE_DIR}/cscope.out"
+export CSCOPE_DB="~/Code/cscope.out"
 
 # OMAP3 ip address
 export ADBHOST="192.168.1.2"
 
 # ADB
-export PSDK_ROOT_DIR="${CODE_DIR}/parrotsdk"
-export PSDK_TOOLCHAIN_ROOT_DIR="${CODE_DIR}/raptor_toolchain"
-alias adb="${CODE_DIR}/Android_SDK/adb"
+export PSDK_ROOT_DIR="~/Code/parrotsdk"
+export PSDK_TOOLCHAIN_ROOT_DIR="~/Code/raptor_toolchain"
+alias adb="~/Code/Android_SDK/adb"
 
 # GIT
 GIT_PS1_SHOWDIRTYSTATE=TRUE
 export PS1='\[\033[01;32m\][\u]\[\033[00m\]\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[00m\]$ '
 export PATH=~/bin:$PATH
 
-# Use ranger as a directory switcher
-function ranger-cd {
-  ranger --choosedir=/tmp/chosen
-  if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
-    cd "$(cat /tmp/chosen)"
-  fi
-  rm -f /tmp/chosen
-}
-bind '"\C-o":"ranger-cd\C-m"'
-
 #export LANG=en_US.utf8
 #export LC_ALL=en_US.utf8
 
-export TERM="xterm-256color"
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi
