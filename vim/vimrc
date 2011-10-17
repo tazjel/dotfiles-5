@@ -1,3 +1,7 @@
+" Enable pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " Turn on color syntax highlighting
 syntax enable
 
@@ -42,10 +46,6 @@ set ruler
 " Enable the plugins
 filetype plugin on
 
-colorscheme desert
-"colorscheme zenburn
-set t_Co=25
-
 fun Ranger()
   silent !ranger --choosefile=/tmp/chosen
   if filereadable('/tmp/chosen')
@@ -56,11 +56,10 @@ fun Ranger()
 endfun
 map <leader>r :call Ranger()6
 
+" Disable expandtab for makefiles
 autocmd FileType make setlocal noexpandtab
+
 if has("gui_gtk2")
   set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
   set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
 endif
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
