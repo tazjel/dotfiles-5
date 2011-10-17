@@ -1,0 +1,66 @@
+" Turn on color syntax highlighting
+syntax enable
+
+" Tell vim that lines following an indented line must have the same indentation as the previous line
+set autoindent
+
+" Tell vim to automatically insert one extra level of indentation in some cases
+set smartindent
+
+" Tell vim to display line numbers
+set number
+
+" Tell vim to highlight the current line in every window and update the highlight as the cursor moves
+set cursorline
+
+" Tell vim how many columns a tab counts for
+set tabstop=4
+
+" tell vim to start searching when you type the first character of the search string
+set incsearch
+
+" Tell vim how many columns text is indented with the reindent operations (<< and >>) and automatic C-style indentation
+set shiftwidth=4
+
+" Tell vim to highlight all matches (shown in a different color)
+set hlsearch
+
+" Tell vim no to highlight any matches
+"set nohls
+
+" Tell vim to enable mouse support
+" To make mouse selection behave as if mouse=a was not enabled, press Shift while selecting with the mouse
+set mouse=a
+
+" Tell vim to insert space characters whenever the tab key is pressed
+" To enter a real tab character use Ctrl-V<Tab> key sequence
+set expandtab
+
+" Tell vim to show the line and column number of the cursor position, separated by a comma
+set ruler
+
+" Enable the plugins
+filetype plugin on
+
+colorscheme desert
+"colorscheme zenburn
+set t_Co=25
+
+fun Ranger()
+  silent !ranger --choosefile=/tmp/chosen
+  if filereadable('/tmp/chosen')
+    exec 'edit ' . system('cat /tmp/chosen')
+    call system('rm /tmp/chosen')
+  endif
+  redraw!
+endfun
+map <leader>r :call Ranger()6
+
+autocmd FileType make setlocal noexpandtab
+if has("gui_gtk2")
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
+  set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
+endif
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
