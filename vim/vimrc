@@ -2,6 +2,9 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" Define leader mapping
+let mapleader = ","
+
 " Turn on color syntax highlighting
 syntax enable
 
@@ -63,3 +66,8 @@ if has("gui_gtk2")
   set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
   set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
 endif
+
+" command-t maps
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
