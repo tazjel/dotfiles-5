@@ -32,7 +32,7 @@ bind '"\C-o":"ranger-cd\C-m"'
 alias pcm2ogg='find . -maxdepth 1 -name "*.pcm" | xargs oggenc -r -B 16 -C 1 -R 16000'
 alias pcm2mp3='find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i lame -r --bitwidth 16 -s 16 -m m --little-endian --signed {}.pcm {}.mp3'
 
-alias cgdbpc='gdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb'
+alias cgdbpc='cgdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb'
 
 function cscope_find(){
     if [ -z "$1" ]; then
