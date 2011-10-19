@@ -3,7 +3,7 @@
 alias vi='vim'
 
 # Enable PHP to be used with the mongoose server
-alias mongoose="mongoose -C cgi,php -I /usr/local/bin/php-cgi"
+alias mongoose_php="mongoose -C cgi,php -I /usr/local/bin/php-cgi"
 
 # Convert PostScript file to PDF booklet
 function ps2booklet(){
