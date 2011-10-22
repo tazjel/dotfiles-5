@@ -58,10 +58,6 @@ set expandtab
 " Tell vim to show the line and column number of the cursor position, separated by a comma
 set ruler
 
-" Enable filetype plugins and intention
-filetype on
-filetype plugin on
-
 fun Ranger()
   silent !ranger --choosefile=/tmp/chosen
   if filereadable('/tmp/chosen')
@@ -76,8 +72,16 @@ map <leader>r :call Ranger()6
 " Needs CSApprox plugin
 set t_Co=256
 
-" Disable expandtab for makefiles
-autocmd FileType make setlocal noexpandtab
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+    " Enable file type detection
+    filetype on
+    " Enable loading the plugin files for specific file types
+    filetype plugin on
+
+    " Disable expandtab for makefiles
+    autocmd FileType make setlocal noexpandtab
+endif
 
 if has("gui_gtk2")
   set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
