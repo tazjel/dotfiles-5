@@ -114,3 +114,6 @@ colorscheme solarized
 
 " Configure NERDTree
 map <F2> :NERDTreeToggle<CR>
+
+" Configure ctags
+set tags=./tags;
