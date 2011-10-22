@@ -28,3 +28,6 @@
 [submodule "vim/bundle/csapprox"]
 	path = vim/bundle/csapprox
 	url = git://github.com/godlygeek/csapprox.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
