@@ -38,6 +38,9 @@ set showmatch
 " Tell vim how many columns text is indented with the reindent operations (<< and >>) and automatic C-style indentation
 set shiftwidth=4
 
+" Tell vim the number of spaces that a <Tab> counts for while performing editing operations
+set softtabstop=4
+
 " Tell vim to highlight all matches (shown in a different color)
 set hlsearch
 
