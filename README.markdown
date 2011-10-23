@@ -1,1 +1,1 @@
-My dotfiles
+My dotfiles (.bashrc, .vimrc, .xmonad, ...)
