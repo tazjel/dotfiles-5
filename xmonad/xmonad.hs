@@ -4,6 +4,7 @@ import XMonad.Config.Azerty
 import qualified Data.Map as M
 import XMonad.Layout.Gaps
 import XMonad.Config.Desktop (desktopLayoutModifiers)
+import XMonad.Util.EZConfig(additionalKeys)
 
 -- Declare config preferences
 config_terminal = "gnome-terminal" -- Default terminal to run
@@ -20,7 +21,9 @@ myConfig = gnomeConfig {
   layoutHook = myLayouts, 
   manageHook = myManageHook,
   focusFollowsMouse = config_focusFollowsMouse
-}
+} `additionalKeys` myKeys
+
+myKeys = [ ((mod1Mask, xK_p), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"") ]
 
 myManageHook = composeAll (
     [ manageHook gnomeConfig
