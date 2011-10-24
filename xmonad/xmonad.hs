@@ -29,4 +29,4 @@ myManageHook = composeAll (
     ])
 
 myLayouts = gaps [(U, 24)] $
-    desktopLayoutModifiers (Tall 1 0.03 0.5 ||| Full)
+    desktopLayoutModifiers (Tall 1 0.03 0.5 ||| Full ||| Mirror (Tall 1 (3/100) (1/2)))
