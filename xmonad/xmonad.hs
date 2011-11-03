@@ -9,7 +9,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 -- Declare config preferences
 config_terminal = "gnome-terminal" -- Default terminal to run
 config_focusFollowsMouse :: Bool -- Have focus not follow mouse
-config_focusFollowsMouse = False
+config_focusFollowsMouse = True 
  
 -- Run xmonad with the specified configuration
 main = xmonad myConfig
