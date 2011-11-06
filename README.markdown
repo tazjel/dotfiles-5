@@ -1,1 +1,19 @@
 My dotfiles (.bashrc, .vimrc, .xmonad, ...)
+
+Installation:
+
+    git clone git://github.com/cravesoft/dotfiles.git ~/dotfiles
+
+Create symlinks:
+
+    ln -s ~/dotfiles/bash/bashrc ~/.bashrc
+    ln -s ~/dotfiles/bash/aliases ~/.bash_aliases
+    ln -s ~/dotfiles/vim ~/.vim
+    ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+    ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+
+Switch to the `~/dotfiles` directory, and fetch submodules:
+
+    cd ~/dotfiles
+    git submodule init
+    git submodule update
