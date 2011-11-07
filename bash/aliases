@@ -64,3 +64,6 @@ function cscope_find(){
     echo "Done!"
     cd - > /dev/null
 }
+
+# Parrot directory
+alias pdir='~/Code/scripts/pdir'
