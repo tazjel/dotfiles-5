@@ -117,3 +117,9 @@ map <F2> :NERDTreeToggle<CR>
 
 " Configure ctags
 set tags=./tags;
+
+" Configure fugitive
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
