@@ -11,6 +11,8 @@ Create symlinks:
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/vim/vimrc ~/.vimrc
     ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+    ln -s ~/dotfiles/git/config ~/.gitconfig
+    ln -s ~/dotfiles/git/template ~/.git_template
 
 Switch to the `~/dotfiles` directory, and fetch submodules:
 

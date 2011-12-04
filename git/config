@@ -1,0 +1,11 @@
+[user]
+	name = Olivier Crave
+	email = cravesoft@gmail.com
+[merge]
+	tool = fugitive
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
