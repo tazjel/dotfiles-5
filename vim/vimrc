@@ -95,10 +95,7 @@ noremap <leader>m <Esc>:CommandTBuffer<CR>
 set wildignore+=*.o,*.obj,.git,CMakeFiles,*.cmake,*.png,*.gif,*.pdf,*.jpg,obj,*.ogg,*.mp3,*.a
 
 " Turn on omnicompletion
-set ofu=syntaxcomplete#Complete
-
-" Tell supertab to work with omnicompletion
-let g:SuperTabDefaultCompletionType = "context"
+"set ofu=syntaxcomplete#Complete
 
 " Define tagbar maps
 let g:tagbar_usearrows = 1
