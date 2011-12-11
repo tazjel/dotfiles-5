@@ -28,41 +28,20 @@ function ranger-cd {
 }
 bind '"\C-o":"ranger-cd\C-m"'
 
-# Batch conversion of PCM files
-alias pcm2wav='find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i sox -t raw -r 16000 -e signed -b 16 -c 1 {}.pcm {}.wav'
-alias pcm2ogg='find . -maxdepth 1 -name "*.pcm" | xargs oggenc -r -B 16 -C 1 -R 16000'
-alias pcm2mp3='find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i lame -r --bitwidth 16 -s 16 -m m --little-endian --signed {}.pcm {}.mp3'
-alias wav2pcm='find . -maxdepth 1 -name "*.wav" | sed -e "s/.wav$//" | xargs -i sox {}.wav -t raw {}.pcm'
-alias pcm2flac='find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i sox -t raw -r 16000 -e signed -b 16 -c 1 {}.pcm {}.flac'
-
-alias cgdbpc='cgdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb'
-
-function cscope_find(){
+# Batch conversion of PCM files in current directory
+function pcmto() {
     if [ -z "$1" ]; then
-        echo "Usage: cscope_find (path_to_source_files)";
+        echo "Usage: pcmto (format)";
         return 1;
     fi
-    cd /
-    # Find source files
-    echo "Finding source files..."
-    find $1 \
-    -path $1/Soprano -prune \
-    -o -path $1/tmp -prune \
-    -o -name '*.py' \
-    -o -name '*.java' \
-    -o -iname '*.[CH]' \
-    -o -name '*.cpp' \
-    -o -name '*.cc' \
-    -o -name '*.hpp'  \
-    > $1/cscope.files
-    echo "Done!"
-    cd - > /dev/null
-    cd $1
-    # Build the cscope database 
-    # -b: just build
-    # -q: create inverted index
-    echo "Building database..."
-    cscope -b -q
-    echo "Done!"
-    cd - > /dev/null
+    find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i sox -t raw -r 16000 -e signed -b 16 -c 1 {}.pcm {}.$1;
 }
+function pcmfrom() {
+    if [ -z "$1" ]; then
+        echo "Usage: pcmfrom (format)";
+        return 1;
+    fi
+    find . -maxdepth 1 -name "*.$1" | sed -e "s/.$1$//" | xargs -i sox {}.$1 -t raw {}.pcm;
+}
+
+alias cgdbpc='cgdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb'
