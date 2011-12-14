@@ -13,6 +13,7 @@ Create symlinks:
     ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
     ln -s ~/dotfiles/git/config ~/.gitconfig
     ln -s ~/dotfiles/git/template ~/.git_template
+    ln -s ~/dotfiles/bin ~/bin
 
 Switch to the `~/dotfiles` directory, and fetch submodules:
 

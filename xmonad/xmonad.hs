@@ -23,7 +23,10 @@ myConfig = gnomeConfig {
   focusFollowsMouse = config_focusFollowsMouse
 } `additionalKeys` myKeys
 
-myKeys = [ ((mod1Mask, xK_p), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"") ]
+myKeys = [
+    ((mod1Mask, xK_p), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
+    ((0, 0xff61), spawn "eval \"$HOME/bin/sshot\"")
+    ]
 
 myManageHook = composeAll (
     [ manageHook gnomeConfig
@@ -33,3 +36,4 @@ myManageHook = composeAll (
 
 myLayouts = gaps [(U, 24)] $
     desktopLayoutModifiers (Tall 1 0.03 0.5 ||| Full ||| Mirror (Tall 1 (3/100) (1/2)))
+

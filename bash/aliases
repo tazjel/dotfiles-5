@@ -45,3 +45,9 @@ function pcmfrom() {
 }
 
 alias cgdbpc='cgdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb'
+
+# Take a screenshot and save it on the desktop
+function sshot() {
+    DATE=`date +%Y-%m-%d\ %H-%M`
+    import -window root "$HOME/Bureau/screenshot_$DATE.png"
+}
