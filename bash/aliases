@@ -11,11 +11,13 @@ function ps2booklet(){
         echo "Usage: ps2booklet (input.[e]ps)";
         return 1;
     fi
-    psbook $1 /tmp/book.ps &&
-    psnup -2 /tmp/book.ps /tmp/booklet.ps &&
-    ps2pdf /tmp/booklet.ps ${1%%.*}.pdf &&
-    rm /tmp/book.ps &&
-    rm /tmp/booklet.ps;
+    local temp1=$(mktemp)
+    local temp2=$(mktemp)
+    psbook $1 $temp1 &&
+    psnup -2 $temp1 $temp2 &&
+    ps2pdf $temp2 ${1%%.*}.pdf &&
+    rm $temp1 &&
+    rm $temp2;
 }
 
 # Use ranger as a directory switcher
