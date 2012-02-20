@@ -101,6 +101,7 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 colorscheme solarized
+call togglebg#map("<F5>")
 
 " Configure NERDTree
 map <F2> :NERDTreeToggle<CR>
