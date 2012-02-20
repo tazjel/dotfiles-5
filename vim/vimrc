@@ -58,6 +58,9 @@ set expandtab
 " Tell vim to show the line and column number of the cursor position, separated by a comma
 set ruler
 
+" Increase history from 20 default to 1000
+set history=1000
+
 " Convince Vim it can use 256 colors inside Gnome Terminal.
 " Needs CSApprox plugin
 set t_Co=256
