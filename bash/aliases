@@ -20,16 +20,6 @@ function ps2booklet(){
     rm $temp2;
 }
 
-# Use ranger as a directory switcher
-function ranger-cd {
-  ranger --choosedir=/tmp/chosen
-  if [ -f /tmp/chosen -a "$(cat /tmp/chosen)" != "$(pwd | tr -d "\n")" ]; then
-    cd "$(cat /tmp/chosen)"
-  fi
-  rm -f /tmp/chosen
-}
-bind '"\C-o":"ranger-cd\C-m"'
-
 # Batch conversion of PCM files in current directory
 function pcmto() {
     if [ -z "$1" ]; then
