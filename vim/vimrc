@@ -58,16 +58,6 @@ set expandtab
 " Tell vim to show the line and column number of the cursor position, separated by a comma
 set ruler
 
-fun Ranger()
-  silent !ranger --choosefile=/tmp/chosen
-  if filereadable('/tmp/chosen')
-    exec 'edit ' . system('cat /tmp/chosen')
-    call system('rm /tmp/chosen')
-  endif
-  redraw!
-endfun
-map <leader>r :call Ranger()6
-
 " Convince Vim it can use 256 colors inside Gnome Terminal.
 " Needs CSApprox plugin
 set t_Co=256
