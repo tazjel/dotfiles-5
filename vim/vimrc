@@ -119,3 +119,15 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Enable syntax highlighting for *.ejs
 au BufNewFile,BufRead *.ejs set filetype=html
+
+" When vimrc is edited, reload it
+autocmd bufwritepost gvimrc source $MYGVIMRC
+autocmd bufwritepost vimrc source $MYVIMRC
+
+" Sudo write (,W)
+noremap <leader>W :w !sudo tee %<CR>
+
+" Toggle show tabs and trailing spaces (,c)
+set lcs=tab:›\ ,trail:·,eol:↴,nbsp:_
+set fcs=fold:-
+nnoremap <silent> <leader>c :set nolist!<CR>
