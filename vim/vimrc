@@ -131,3 +131,16 @@ noremap <leader>W :w !sudo tee %<CR>
 set lcs=tab:›\ ,trail:·,eol:↴,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace ()
+    exec ':%s/ \+$//gc'
+endfunction
+noremap <leader>ss :call StripWhitespace ()<CR>
+
+" Paste toggle (,p)
+set pastetoggle=<leader>p
+map <leader>p :set invpaste paste?<CR>
+
+" Clear last search (,cs)
+map <leader>cs <Esc>:noh<CR>
