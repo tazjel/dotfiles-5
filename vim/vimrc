@@ -10,6 +10,9 @@ set nocompatible
 " Turn on color syntax highlighting
 syntax enable
 
+" BOM often causes trouble
+set encoding=utf-8 nobomb
+
 " Tell vim that lines following an indented line must have the same indentation as the previous line
 set autoindent
 
