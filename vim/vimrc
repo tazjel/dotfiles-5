@@ -25,6 +25,9 @@ set number
 " Tell vim to highlight the current line in every window and update the highlight as the cursor moves
 set cursorline
 
+" Tell vim to try yo preserve column where cursor is positioned
+set nostartofline
+
 " Tell vim how many columns a tab counts for
 set tabstop=4
 
