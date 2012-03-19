@@ -112,7 +112,7 @@ call togglebg#map("<F5>")
 map <F2> :NERDTreeToggle<CR>
 
 " Configure ctags
-set tags=./tags;
+"set tags=./tags;
 
 " Configure fugitive
 autocmd User fugitive
