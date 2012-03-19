@@ -115,8 +115,7 @@ export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 export ADBHOST="192.168.1.2"
 
 # ADB
-export PSDK_ROOT_DIR="$HOME/Code/parrotsdk"
-export PSDK_TOOLCHAIN_ROOT_DIR="$HOME/Code/raptor_toolchain"
+export PSDK_ROOT_DIR="$HOME/Code/parrotsdk2"
 alias adb="$HOME/Code/Android_SDK/adb"
 
 # GIT
@@ -132,5 +131,9 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 else
     export TERM='xterm-color'
 fi
+
+# VDE-tools
+export VDE_TOOLS_DIR=$HOME/Code/Soprano-tools/VDE-tools
+export PATH=${PATH}:${VDE_TOOLS_DIR}
 
 export LD_PRELOAD="$HOME/Code/stderred/lib/stderred.so"
