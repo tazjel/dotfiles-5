@@ -137,3 +137,6 @@ export VDE_TOOLS_DIR=$HOME/Code/Soprano-tools/VDE-tools
 export PATH=${PATH}:${VDE_TOOLS_DIR}
 
 export LD_PRELOAD="$HOME/Code/stderred/lib/stderred.so"
+
+# HAXE
+export HAXE_LIBRARY_PATH=/usr/share/haxe/std:$HOME/Code/haxe-classes/yahlib:.
