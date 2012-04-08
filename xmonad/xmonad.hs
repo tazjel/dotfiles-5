@@ -24,7 +24,7 @@ myConfig = gnomeConfig {
 } `additionalKeys` myKeys
 
 myKeys = [
-    ((mod1Mask, xK_p), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
+    ((mod1Mask, xK_p), spawn "exe=`cat $HOME/.xmonad/dmenu_apps | dmenu` && eval \"exec $exe\""),
     ((0, 0xff61), spawn "eval \"$HOME/bin/sshot\"")
     ]
 
