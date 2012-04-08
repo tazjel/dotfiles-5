@@ -8,9 +8,11 @@ Create symlinks:
 
     ln -s ~/dotfiles/bash/bashrc ~/.bashrc
     ln -s ~/dotfiles/bash/aliases ~/.bash_aliases
+    ln -s ~/dotfiles/bash/inputrc ~/.inputrc
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/vim/vimrc ~/.vimrc
     ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+    ln -s ~/dotfiles/xmonad/dmenu_apps ~/.xmonad/dmenu_apps
     ln -s ~/dotfiles/git/config ~/.gitconfig
     ln -s ~/dotfiles/git/template ~/.git_template
     ln -s ~/dotfiles/bin ~/bin
