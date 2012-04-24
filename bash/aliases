@@ -26,14 +26,24 @@ function pcmto() {
         echo "Usage: pcmto (format)";
         return 1;
     fi
-    find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i sox -t raw -r 16000 -e signed -b 16 -c 1 {}.pcm {}.$1;
+    if [ "$1" == "spx" ]; then
+        find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i speexenc --rate 16000 --16bit "{}.pcm" "{}.$1";
+    elif [ "$1" == "mp3" ]; then
+        find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i lame -r -m m -s 16 -b 16 "{}.pcm" "{}.$1";
+    else
+        find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i sox -t raw -r 16000 -e signed -b 16 -c 1 "{}.pcm" "{}.$1";
+    fi
 }
 function pcmfrom() {
     if [ -z "$1" ]; then
         echo "Usage: pcmfrom (format)";
         return 1;
     fi
-    find . -maxdepth 1 -name "*.$1" | sed -e "s/.$1$//" | xargs -i sox {}.$1 -t raw {}.pcm;
+    if [ "$1" == "spx" ]; then
+        find . -maxdepth 1 -name "*.$1" | sed -e "s/.$1$//" | xargs -i speexdec "{}.$1" "{}.pcm";
+    else
+        find . -maxdepth 1 -name "*.$1" | sed -e "s/.$1$//" | xargs -i sox "{}.$1" -t raw "{}.pcm";
+    fi
 }
 
 alias cgdbpc='cgdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb'
