@@ -110,7 +110,6 @@ export EDITOR=vim
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
-export INPUTRC="$HOME/.inputrc"
 
 # OMAP3 ip address
 export ADBHOST="192.168.1.2"
