@@ -141,3 +141,14 @@ export LD_PRELOAD="$HOME/Code/stderred/lib/stderred.so"
 
 # HAXE
 export HAXE_LIBRARY_PATH=/usr/share/haxe/std:$HOME/Code/haxe-classes/yahlib:.
+
+# NODE
+export NODE_PATH=/usr/local/lib/node_modules
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}
