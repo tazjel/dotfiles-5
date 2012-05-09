@@ -115,7 +115,7 @@ export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 export ADBHOST="192.168.1.2"
 
 # ADB
-export PSDK_ROOT_DIR="$HOME/Code/parrotsdk2"
+export PSDK_ROOT_DIR="$HOME/Code/parrotsdk"
 alias adb="$HOME/Code/Android_SDK/adb"
 
 # GIT
