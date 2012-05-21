@@ -53,3 +53,18 @@ function sshot() {
     DATE=`date +%Y-%m-%d\ %H-%M`
     import -window root "$HOME/Bureau/screenshot_$DATE.png"
 }
+
+# Generic Colorizer
+alias cl='/usr/bin/grc -es --colour=auto'
+alias configure='cl ./configure'
+alias diff='cl diff'
+alias make='cl make'
+alias gcc='cl gcc'
+alias arm-elf-gcc='cl arm-elf-gcc'
+alias g++='cl g++'
+alias as='cl as'
+alias gas='cl gas'
+alias ld='cl ld'
+alias netstat='cl netstat'
+alias ping='cl ping'
+alias traceroute='cl /usr/sbin/traceroute'
