@@ -139,4 +139,4 @@ export PATH=${PATH}:${VDE_TOOLS_DIR}
 # Soprano-data
 export SOPRANO_DATA_PATH=$HOME/Data/Locale
 
-export LD_PRELOAD="$HOME/Code/stderred/lib/stderred.so"
+export LD_PRELOAD="$HOME/Code/External/stderred/lib/stderred.so"
