@@ -13,7 +13,7 @@ libreoffice
 nautilus
 radiotray
 spotify
-synaptic
+sudo synaptic
 thunderbird
 transmission-gtk
 usb-creator-gtk

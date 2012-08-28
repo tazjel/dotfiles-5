@@ -112,10 +112,11 @@ export CLICOLOR=1
 export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 
 # OMAP3 ip address
-export ADBHOST="192.168.1.2"
+export ADBHOST="172.20.220.68"
 
 # ADB
 export PSDK_ROOT_DIR="$HOME/Code/parrotsdk"
+export PSDK_TOOLCHAIN_ROOT_DIR="$HOME/Code/raptor_toolchain"
 alias adb="$HOME/Code/Android_SDK/adb"
 
 # GIT
@@ -142,3 +143,5 @@ export SOPRANO_DATA_PATH=$HOME/Data/Locale
 export LD_PRELOAD="$HOME/Code/External/stderred/lib/stderred.so"
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+export NODE_PATH=/usr/local/lib/node_modules
