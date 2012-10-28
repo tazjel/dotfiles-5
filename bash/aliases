@@ -2,6 +2,8 @@
 
 alias vi='vim'
 
+alias xdg='xdg-open'
+
 # Enable PHP to be used with the mongoose server
 alias mongoose_php="mongoose -C cgi,php -I /usr/local/bin/php-cgi"
 
