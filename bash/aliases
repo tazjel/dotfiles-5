@@ -2,6 +2,8 @@
 
 alias vi='vim'
 
+alias gt='gnome-terminal'
+
 alias xdg='xdg-open'
 
 # Enable PHP to be used with the mongoose server
