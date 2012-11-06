@@ -37,6 +37,9 @@ set ttyfast
 " Tell vim to start searching when you type the first character of the search string
 set incsearch
 
+" Tell vim to create <FILENAME>.un~ file whenever a file is edited
+set undofile
+
 " When a bracket is inserted, briefly jump to the matching one
 set showmatch
 
