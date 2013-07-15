@@ -1,6 +1,8 @@
 [user]
     name = Olivier Crave
     email = cravesoft@gmail.com
+[core]
+    excludesfile = ~/.gitignore
 [merge]
     tool = fugitive
 [mergetool "fugitive"]

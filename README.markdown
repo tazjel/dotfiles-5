@@ -14,6 +14,7 @@ Create symlinks:
     ln -s ~/dotfiles/xmonad/dmenu_apps ~/.xmonad/dmenu_apps
     ln -s ~/dotfiles/git/config ~/.gitconfig
     ln -s ~/dotfiles/git/template ~/.git_template
+    ln -s ~/dotfiles/git/ignore ~/.gitignore
     ln -s ~/dotfiles/bin ~/bin
 
 Switch to the `~/dotfiles` directory, and fetch submodules:
