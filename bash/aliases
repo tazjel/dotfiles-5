@@ -10,6 +10,7 @@ alias xdg='xdg-open'
 alias mongoose_php="mongoose -C cgi,php -I /usr/local/bin/php-cgi"
 
 # Convert PostScript file to PDF booklet
+# Print using "Bord court R/V"
 function ps2booklet(){
     if [ -z "$1" ]; then
         echo "Usage: ps2booklet (input.[e]ps)";
