@@ -114,14 +114,6 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 
-# OMAP3 ip address
-export ADBHOST="172.20.220.68"
-
-# ADB
-export PSDK_ROOT_DIR="$HOME/Code/parrotsdk"
-export PSDK_TOOLCHAIN_ROOT_DIR="$HOME/Code/raptor_toolchain"
-alias adb="$HOME/Code/Android_SDK/adb"
-
 # GIT
 GIT_PS1_SHOWDIRTYSTATE=TRUE
 export PS1='\[\033[01;32m\][\u]\[\033[00m\]\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[00m\]$ '
@@ -135,13 +127,6 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 else
     export TERM='xterm-color'
 fi
-
-# VDE-tools
-export VDE_TOOLS_DIR=$HOME/Code/Soprano-tools/VDE-tools
-export PATH=${PATH}:${VDE_TOOLS_DIR}
-
-# Soprano-data
-export SOPRANO_DATA_PATH=$HOME/Data/Locale
 
 export LD_PRELOAD="$HOME/Code/External/stderred/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
 
