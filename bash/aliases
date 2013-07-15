@@ -34,7 +34,7 @@ function pcmto() {
     local rate=16000
     local encoding=signed
     local channels=1
-    while getopts "i:o:d:c:b:e:r:" opt; do
+    while getopts "i:o:d:c:b:e:r:h" opt; do
         case $opt in
             i)
                 in=$OPTARG
@@ -57,12 +57,21 @@ function pcmto() {
             r)
                 rate=$OPTARG
                 ;;
+            h)
+                echo "Usage: pcmto [-i <infile>] [-o <oufile>] [-d <maxdepth>]"\
+                     "[-c <channels>] [-b <bitdepth>] [-e <encoding>]"\
+                     "[-r <rate>] [-h] "
+                OPTIND=1
+                return 0;
+                ;;
             \?)
                 echo "Invalid option: -$OPTARG" >&2
+                OPTIND=1
                 return 1
                 ;;
             :)
                 echo "Option -$OPTARG requires an argument." >&2
+                OPTIND=1
                 return 1
                 ;;
         esac
@@ -96,7 +105,7 @@ function pcmfrom() {
     local in=wav
     local out=pcm
     local maxdepth=1
-    while getopts ":i:o:d:" opt; do
+    while getopts "i:o:d:h" opt; do
         case $opt in
             i)
                 in=$OPTARG
@@ -107,12 +116,20 @@ function pcmfrom() {
             d)
                 maxdepth=$OPTARG
                 ;;
+            h)
+                echo "Usage: pcmfrom [-i <infile>] [-o <oufile>] [-d <maxdepth>]"\
+                     "[-h] "
+                OPTIND=1
+                return 0;
+                ;;
             \?)
                 echo "Invalid option: -$OPTARG" >&2
+                OPTIND=1
                 return 1
                 ;;
             :)
                 echo "Option -$OPTARG requires an argument." >&2
+                OPTIND=1
                 return 1
                 ;;
         esac
