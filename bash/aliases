@@ -25,29 +25,107 @@ function ps2booklet(){
     rm $temp2;
 }
 
-# Batch conversion of PCM files in current directory
+# Batch conversion of PCM files in current directory and below
 function pcmto() {
-    if [ -z "$1" ]; then
-        echo "Usage: pcmto (format)";
-        return 1;
-    fi
-    if [ "$1" == "spx" ]; then
-        find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i speexenc --rate 16000 --16bit "{}.pcm" "{}.$1";
-    elif [ "$1" == "mp3" ]; then
-        find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i lame -r -m m -s 16 -b 16 "{}.pcm" "{}.$1";
+    local in=pcm
+    local out=wav
+    local maxdepth=1
+    local bitdepth=16
+    local rate=16000
+    local encoding=signed
+    local channels=1
+    while getopts "i:o:d:c:b:e:r:" opt; do
+        case $opt in
+            i)
+                in=$OPTARG
+                ;;
+            o)
+                out=$OPTARG
+                ;;
+            d)
+                maxdepth=$OPTARG
+                ;;
+            c)
+                channels=$OPTARG
+                ;;
+            b)
+                bitdepth=$OPTARG
+                ;;
+            e)
+                encoding=$OPTARG
+                ;;
+            r)
+                rate=$OPTARG
+                ;;
+            \?)
+                echo "Invalid option: -$OPTARG" >&2
+                return 1
+                ;;
+            :)
+                echo "Option -$OPTARG requires an argument." >&2
+                return 1
+                ;;
+        esac
+    done
+    OPTIND=1
+    if [ $out == "spx" ]; then
+        # sudo apt-get install speex
+        find . -maxdepth $maxdepth -name "*.$in" |\
+        sed -e "s/.$in$//" |\
+        xargs -i speexenc --rate $rate --${bitdepth}bit "{}.$in" "{}.$out";
+    #elif [ "$out" == "mp3" ]; then
+    #    # sudo apt-get install lame
+    #    rate=`echo "${rate/1000}" | bc -l | sed 's/0\+$//g'`
+    #    echo $rate
+    #    if [ $channels == 1 ]; then
+    #        mode=m
+    #    elif [ $channels == 2 ]; then
+    #        mode=s
+    #    fi
+    #    find . -maxdepth $maxdepth -name "*.$in" |\
+    #    sed -e "s/.$in$//" |\
+    #    xargs -i lame -r -m $mode --$encoding -s $rate -b $bitdepth "{}.$in" "{}.$out";
     else
-        find . -maxdepth 1 -name "*.pcm" | sed -e "s/.pcm$//" | xargs -i sox -t raw -r 16000 -e signed -b 16 -c 1 "{}.pcm" "{}.$1";
+        # sudo apt-get install sox libsox-fmt-mp3
+        find . -maxdepth $maxdepth -name "*.$in" |\
+        sed -e "s/.$in$//" |\
+        xargs -i sox -t raw -r $rate -e $encoding -b $bitdepth -c $channels "{}.$in" "{}.$out";
     fi
 }
 function pcmfrom() {
-    if [ -z "$1" ]; then
-        echo "Usage: pcmfrom (format)";
-        return 1;
-    fi
-    if [ "$1" == "spx" ]; then
-        find . -maxdepth 1 -name "*.$1" | sed -e "s/.$1$//" | xargs -i speexdec "{}.$1" "{}.pcm";
+    local in=wav
+    local out=pcm
+    local maxdepth=1
+    while getopts ":i:o:d:" opt; do
+        case $opt in
+            i)
+                in=$OPTARG
+                ;;
+            o)
+                out=$OPTARG
+                ;;
+            d)
+                maxdepth=$OPTARG
+                ;;
+            \?)
+                echo "Invalid option: -$OPTARG" >&2
+                return 1
+                ;;
+            :)
+                echo "Option -$OPTARG requires an argument." >&2
+                return 1
+                ;;
+        esac
+    done
+    OPTIND=1
+    if [ "$in" == "spx" ]; then
+        # sudo apt-get install speex
+        find . -maxdepth $maxdepth -name "*.$in" |\
+        sed -e "s/.$in$//" | xargs -i speexdec "{}.$in" "{}.$out";
     else
-        find . -maxdepth 1 -name "*.$1" | sed -e "s/.$1$//" | xargs -i sox "{}.$1" -t raw "{}.pcm";
+        # sudo apt-get install sox  libsox-fmt-mp3
+        find . -maxdepth $maxdepth -name "*.$in" |\
+        sed -e "s/.$in$//" | xargs -i sox "{}.$in" -t raw "{}.$out";
     fi
 }
 
