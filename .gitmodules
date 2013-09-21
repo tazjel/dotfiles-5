@@ -43,3 +43,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "utils/stderred"]
+	path = utils/stderred
+	url = https://github.com/sickill/stderred.git
