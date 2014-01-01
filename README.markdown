@@ -21,3 +21,7 @@ Switch to the `~/dotfiles` directory, and fetch submodules:
     cd ~/dotfiles
     git submodule init
     git submodule update
+
+Set a local node prefix:
+
+    echo prefix = ~/.node >> ~/.npmrc
